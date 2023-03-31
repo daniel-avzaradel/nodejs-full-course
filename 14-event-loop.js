@@ -1,10 +1,14 @@
-console.log('first task');
-console.time()
+const { readFile } = require('fs')
+// ================================= //
 
-for(let i=0; i < 100 ; i++) {
-    const h3 = document.querySelector('h3')
-    h3.textContent = 'Hey, everyone is waiting on me'
-}
-console.timeEnd();
+console.log('started first task');
 
-console.log('next task');
+readFile('./content/first.txt', 'utf8', (err, result) => {
+    if(err) {
+        console.log(err);
+        return
+    }
+    console.log(result);
+    console.log('completed first task');
+})
+console.log('starting second task');
